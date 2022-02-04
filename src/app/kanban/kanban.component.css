@@ -1,0 +1,110 @@
+@media screen and (max-width:767px){/**tablette*/}
+@media screen and (max-width:575px){/**smartphone*/}
+
+p {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+}
+
+li a {
+    display: block;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+    color:black ;
+
+}
+
+p.active {
+    background-color: #FC7900;
+    border-radius: 7px;
+}
+
+
+a:active{
+    color:#0A363F ;
+
+}
+
+
+h3{
+    color:#0A363F ;
+
+}
+
+img {      
+    width : 38px;
+    
+    vertical-align: middle;
+  }
+
+  #menu {
+    width:240px;
+    margin-left:20px;
+    margin-right:20px;
+    position:absolute;
+    }
+    #contenu {
+        margin-left:300px;
+        margin-top:40px;
+     }
+     #contenu p{
+        color: gray;
+    }
+#contenu form label{
+    color:#0A363F ;
+}
+
+#list-select{
+    background-color: #0A363F;
+    color: white;
+}
+
+#div-1{
+    background-color: #0A363F;
+    width:30%;
+    padding: 50px;
+    border-radius: 7px;
+    margin-top: 70px;   
+    margin-left: 300px;
+    color: white;
+    
+}
+
+#div-2{
+    background-color: #0A363F;
+    width:30%;
+    padding: 50px;
+    border-radius: 7px;
+    margin-top: 70px;   
+    margin-left: 100px;
+    color: white;
+    
+}
+
+#div-3{
+    background-color: #0A363F;
+    width:30%;
+    padding: 50px;
+    border-radius: 7px;
+    margin-top: 70px;   
+    margin-left: 100px;
+    color: white;
+    
+}
+
+.tab{
+    display: flex;
+    align-items: stretch;
+    height: 500px;
+    width: 800px;
+    
+   
+
+}
+
+#titre{
+    margin-top:-20px ;
+    margin-left:30px;
+}

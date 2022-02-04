@@ -1,0 +1,68 @@
+<app-footer></app-footer>
+<h1 id="title">Liste des projets</h1>
+
+<div class="content">
+
+    <table class="table table-hover">
+      <thead class="thead_container" >
+        <tr>
+          <th scope="col">Nom du projet </th>
+          <th scope="col">Type </th>
+          <th scope="col">Chef projet</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let projet of projets" >
+        <tr>
+          <td><a [routerLink]="['/backlog/'+projet.id]" class="nav-link" (click)="pass(projet.id)" >{{projet.nom}}</a></td>
+          <td>Devloppement</td>
+          <td>{{User.username}}</td>
+          <td>Equipe du projet</td>
+          <td class="td"><button type="button" class="btn btn-info btn-sm px-3"(click)="onEdit(projet)"data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa fa-pencil-square" ></i>
+          </button></td>
+          <td class="td"><button type="button" class="btn btn-danger btn-sm px-3"(click)="clickMethod(projet.nom,projet.id)">
+            <i class="fa fa-trash" ></i>
+          </button> </td>
+        </tr>
+   
+    </tbody>
+  </table>
+  <button  type="button" id="CreateProject" (click)= "addProject()"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Créer un projet
+  </button>
+  <!-- Modal -->
+  <div class="modal fade"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 *ngIf="showAdd"class="Titre">Ajout projet</h5>
+          <h5 *ngIf="showUpdate" class="Titre">Modifier projet</h5>
+          <button type="button" class="close" data-bs-dismiss="modal"  aria-label="Close">
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formValue">
+                            
+            <div class="form-group">
+              
+                <input type="text" class="form-control" id="nomProjet"  name="nomProjet" formControlName="nomProjet" placeholder="Entrez le nom du projet"  required>
+                <br>
+              </div>                            
+            <div  class="form-group">
+            
+                <input type="text" class="form-control" id="typeProjet" name="typeProjet" formControlName="typeProjet" placeholder="Entrez le type du projet" >
+                <br>
+            </div>                            
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" id='cancel' class="btn btn-secondary" data-bs-dismiss="modal"(click)="cancel()">Annuler</button>
+      <button type="button" *ngIf="showAdd"class="btn btn-primary"  (click)="saveProject()">Créer</button>
+      <button type="button" *ngIf="showUpdate" class="btn btn-primary"  (click)="updateProject()">Modifier</button>
+  </div>
+  </div>
+  

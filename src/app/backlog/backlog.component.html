@@ -1,0 +1,34 @@
+
+<app-menu></app-menu>
+<div id="contenu">
+<div id="backlog">
+    <h3 id="title">Sprint backlog</h3>
+    <div cdkDropList id="sprint-Backlog" class="example-list" [cdkDropListData]="sprintBacklog"  [cdkDropListConnectedTo]="['backlogProject']" (cdkDropListDropped)="drop($event)" >
+        <div class="example-box" *ngFor="let u of sprintBacklog" cdkDrag>{{u}}</div>
+      </div>
+
+</div>
+<div id="backlog">
+    <h3 id="title">Product backlog</h3>
+    <div cdkDropList id="backlogProject" class="example-list" [cdkDropListData]="userstories" [cdkDropListConnectedTo]="['sprint-Backlog']" (cdkDropListDropped)="drop($event)" >
+        <div class="example-box" *ngFor="let UserStory of userstories" cdkDrag>{{UserStory.userStory}}<button type="button" class="btn btn-danger btn-sm px-3"(click)="clickMethod(UserStory.userStory,UserStory.id)">
+          <i class="fa fa-trash" ></i>
+        </button></div>
+      </div>
+
+      
+        <form [formGroup]="formValue"aria-required="true">
+          <button type="submit"id="button" (click)= "saveUserstory()">
+            <i class="bi bi-plus-lg"></i>
+            <span>Tache</span>
+            </button>
+                              
+          <div class="form-group" >
+            
+              <input type="text" class="form-control" id="tache"  name="tache" formControlName="userStory" placeholder="Tache"  required>
+              <br>
+            </div>                            
+        
+          </form>
+</div>
+</div>

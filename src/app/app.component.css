@@ -1,0 +1,30 @@
+.navbar {   
+    background-color: #0A363F; 
+
+
+}
+
+.navbar-brand{
+    margin-left: 2%;
+    margin-right: 10%;
+}
+
+.nav-link,.navbar-brand{
+    color: white;  
+}
+.spacer{
+    flex: 0.9 1 auto;
+
+  }
+  .spacer2{
+    flex: 0.1 1 auto;
+
+  }
+#help-icon{
+  color: #119D90;
+ 
+}
+.nav-link > i{
+    font-size: 20px;
+}
+

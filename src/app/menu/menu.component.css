@@ -1,0 +1,48 @@
+
+@media screen and (max-width:767px){/**tablette*/}
+@media screen and (max-width:575px){/**smartphone*/}
+p {
+    list-style-type: none;
+    margin: 0;
+    padding: 2px;
+}
+
+ a {
+    display: block;
+   
+    text-decoration: none;
+    color:black ;
+
+}
+
+h3{
+    color:#0A363F ;
+
+}
+
+p.active {
+    background-color: #FC7900;
+    border-radius: 3px;
+    
+}
+
+
+img {      
+    width : 45px;
+    
+  }
+
+  a:active{
+    color:#0A363F ;
+
+}
+ #menu {
+     border-right: 1px solid #0A363F ;
+    padding-top: 5%;
+    padding-right: 2%;
+    width:15%;
+    margin-left:20px;
+    margin-right:20px;
+    position:fixed;
+    height: 100%;
+    }

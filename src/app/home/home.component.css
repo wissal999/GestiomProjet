@@ -1,0 +1,81 @@
+@media screen and (max-width:767px){/**tablette*/}
+@media screen and (max-width:575px){/**smartphone*/}
+
+form {
+    width:100%;
+    padding: 80px;
+    border-radius: 7px;
+    background: #0A363F;
+    margin: auto;
+    
+    
+}
+p{
+    color: #0A363F;
+    margin-top:10%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+    position: absolute;
+    top: 23%;
+    left: 10%;
+    transform: translate(-23%, -10%);
+    font-size: 20pt;
+}
+h2{
+    color: #FC7900;
+    margin-top:10%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(-10%, -10%);
+    font-size: 30pt;
+}
+h1{
+    color: #f1f1f1;
+    text-align: center;
+}
+
+form h4{
+    color: white;
+    text-align: center;
+}
+
+
+#submit{
+    color: hsl(190, 73%, 14%);
+    text-align: center;
+    padding: 12px 30px;
+    margin: 10px ;
+    position: absolute;
+    border-radius: 7px;
+    right: 17%;
+    
+    transform: translate(-17%);
+    
+
+}
+
+input[type=text], input[type=password] {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+  
+}
+
+#container{
+    width:400px;
+    margin:0 auto;
+    margin-top:10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    display: block;
+}
+#txt{
+    text-align: center;
+    color: white;
+}

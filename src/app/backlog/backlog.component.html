@@ -4,16 +4,16 @@
 <div id="backlog">
     <h3 id="title">Sprint backlog</h3>
     <div cdkDropList id="sprint-Backlog" class="example-list" [cdkDropListData]="sprintBacklog"  [cdkDropListConnectedTo]="['backlogProject']" (cdkDropListDropped)="drop($event)" >
-        <div class="example-box" *ngFor="let u of sprintBacklog" cdkDrag>{{u}}</div>
+        <div class="example-box" *ngFor="let  UserStory of sprintBacklog" cdkDrag>{{UserStory.userStory}}</div>
       </div>
 
 </div>
 <div id="backlog">
     <h3 id="title">Product backlog</h3>
     <div cdkDropList id="backlogProject" class="example-list" [cdkDropListData]="userstories" [cdkDropListConnectedTo]="['sprint-Backlog']" (cdkDropListDropped)="drop($event)" >
-        <div class="example-box" *ngFor="let UserStory of userstories" cdkDrag>{{UserStory.userStory}}<button type="button" class="btn btn-danger btn-sm px-3"(click)="clickMethod(UserStory.userStory,UserStory.id)">
-          <i class="fa fa-trash" ></i>
-        </button></div>
+        <div class="example-box" *ngFor="let UserStory of userstories" cdkDrag>{{UserStory.userStory}}
+          <i class="bi bi-trash" (click)="clickMethod(UserStory.userStory,UserStory.id)"></i>
+    </div>
       </div>
 
       

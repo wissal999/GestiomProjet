@@ -12,7 +12,7 @@ import { UserstoryService } from '../_services/userstory.service';
   styleUrls: ['./backlog.component.css']
 })
 export class BacklogComponent implements OnInit {
-  sprintBacklog=['userstory1','userstory2'];  
+  sprintBacklog:any;  
   formValue !:FormGroup;
   userstory:Userstory=new Userstory();
   userstories:any;
@@ -27,6 +27,12 @@ export class BacklogComponent implements OnInit {
     this.formValue=this.formBuilder.group({
       userStory:['']
     })
+    this.userstoryService.getUserstories(this.id).subscribe(data=>{
+      this.userstories=data;
+      this.sprintBacklog=[];
+      console.log(data);
+    });
+
   }
 
 

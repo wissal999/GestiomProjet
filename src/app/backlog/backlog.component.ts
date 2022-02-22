@@ -65,7 +65,7 @@ export class BacklogComponent implements OnInit {
     alert("userstory added !")
     let ref=document.getElementById('cancel');
     ref?.click();
-    
+    this.formValue.reset()
   
     this.getUserstoriesProject();
     });

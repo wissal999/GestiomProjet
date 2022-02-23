@@ -20,6 +20,7 @@ export class GestionProjetsComponent implements OnInit {
   showAdd:boolean=false;
   showDiv:boolean=false;
   showUpdate !:boolean;
+  showAddCollaborator:boolean=false;
   projet:Projet=new Projet();
   userid:UserId=new UserId();
   
@@ -59,6 +60,13 @@ export class GestionProjetsComponent implements OnInit {
     this.showDiv=true;
     this.showAdd=true;
     this.showUpdate=false;
+    this.showAddCollaborator=false;
+  }
+  addCollaborator(){
+    this.showDiv=true;
+    this.showAdd=false;
+    this.showUpdate=false;
+    this.showAddCollaborator=true;
   }
   cancel(){
     this.showDiv=false;
@@ -75,6 +83,7 @@ export class GestionProjetsComponent implements OnInit {
     this.showAdd=false;
     this.showUpdate=true;
     this.showDiv=true;
+    this.showAddCollaborator=false;
     this.projet.id=projet.id;
 
 

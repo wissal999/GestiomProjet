@@ -21,7 +21,6 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { KanbanComponent } from './kanban/kanban.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -42,7 +41,6 @@ import { FooterComponent } from './footer/footer.component';
     BacklogComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
     KanbanComponent,
     ProfileComponent,
     FooterComponent
@@ -62,7 +60,8 @@ import { FooterComponent } from './footer/footer.component';
     MatDialogModule,
     MatCardModule,
     BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
+  
     
  
 

@@ -45,6 +45,9 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+  redirectionProjects(){
+    if ( this.isLoggedIn = true) {}
+  }
 
   reloadPage(): void {
     window.location.reload();

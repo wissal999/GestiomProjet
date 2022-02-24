@@ -23,7 +23,9 @@ export class GestionProjetsComponent implements OnInit {
   showAddCollaborator:boolean=false;
   projet:Projet=new Projet();
   userid:UserId=new UserId();
-  
+  idProject:any;
+  idUser:any;
+  email:any;
 
  
 
@@ -36,6 +38,7 @@ export class GestionProjetsComponent implements OnInit {
       typeProjet:[''],
       chefProjet:[''],
       equipeProjet:[''],
+      email:[''],
     })
     this.User = this.token.getUser();
     this.userService.getProjets(this.User.id).subscribe(data=>{this.projets=data;console.log(data);})
@@ -62,12 +65,36 @@ export class GestionProjetsComponent implements OnInit {
     this.showUpdate=false;
     this.showAddCollaborator=false;
   }
-  addCollaborator(){
+  addCollaborator(id:string){
     this.showDiv=true;
     this.showAdd=false;
     this.showUpdate=false;
     this.showAddCollaborator=true;
+    this.idProject=id;
+    console.log(this.idProject);
   }
+  invitCollaborator(){
+    console.log(this.idProject);
+    this.email=this.formValue.value.email;
+     console.log(this.email);
+    this.userService.getIdbyEmail(this.formValue.value.email).subscribe(
+      data=>{
+        this.idUser=data
+        console.log( this.idUser);
+        console.log( this.idProject);
+        this.userService.invitaion(this.idUser,this.idProject).subscribe(data=>
+          {
+            this.showDiv=false;
+          }
+            ) 
+      }
+    )
+
+ 
+   
+  }
+  
+
   cancel(){
     this.showDiv=false;
   }
@@ -114,8 +141,8 @@ export class GestionProjetsComponent implements OnInit {
     alert("projet added !")
     let ref=document.getElementById('cancel');
     ref?.click();
-    this.getProjects();
-   // window.location.reload();
+   
+    window.location.reload();
   });
    
 

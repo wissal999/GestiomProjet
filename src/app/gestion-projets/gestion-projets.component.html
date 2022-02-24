@@ -1,17 +1,17 @@
 <app-footer></app-footer>
-<h1 id="title">Liste des projets</h1>
+<h1 id="title">List projects</h1>
 
 <div class="content">
 
     <table class="table table-hover">
       <thead class="thead_container" >
         <tr>
-          <th scope="col">Nom du projet </th>
+          <th scope="col">Name project </th>
           <th scope="col">Type </th>
-          <th scope="col">Chef projet</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
+          <th scope="col"> Project Manager</th>
+          <th scope="col">Add collaborater</th>
+          <th scope="col">Edit project</th>
+          <th scope="col">Delete project</th>
         </tr>
       </thead>
       <tbody *ngFor="let projet of projets" >
@@ -19,13 +19,16 @@
           <td><a [routerLink]="['/backlog/'+projet.id]" class="nav-link" (click)="pass(projet.id)" >{{projet.nom}}</a></td>
           <td>Devloppement</td>
           <td>{{User.username}}</td>
-          <td>Equipe du projet</td>
-          <td class="td" (click)="onEdit(projet)"data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <td class="td" data-bs-toggle="modal" data-bs-target="#exampleModal"  (click)="addCollaborator(projet.id)">
+            <i class="bi bi-person-plus-fill"></i></td>
+          <td class="td" (click)="onEdit(projet)" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fa fa-pencil-square" ></i>
           </td>
           <td class="td" (click)="clickMethod(projet.nom,projet.id)">
             <i class="bi bi-trash"></i>
         </td>
+
+
         </tr>
    
     </tbody>
@@ -33,13 +36,15 @@
   <button  type="button" id="CreateProject" (click)= "addProject()"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Créer un projet
   </button>
-  <!-- Modal -->
+  
+   <!-- Modal -->
   <div class="modal fade"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 *ngIf="showAdd"class="Titre">Ajout projet</h5>
           <h5 *ngIf="showUpdate" class="Titre">Modifier projet</h5>
+          <h5 *ngIf="showAddCollaborator"class="Titre">Invite your team members to MPDAM Projet</h5>
           <button type="button" class="close" data-bs-dismiss="modal"  aria-label="Close">
             <i class="bi bi-x"></i>
           </button>
@@ -47,22 +52,24 @@
         <div class="modal-body">
           <form [formGroup]="formValue">
                             
-            <div class="form-group">
-              
-                <input type="text" class="form-control" id="nomProjet"  name="nomProjet" formControlName="nomProjet" placeholder="Entrez le nom du projet"  required>
+            <div class="form-group">        
+                <input type="text"  *ngIf="showAdd  || showUpdate"  class="form-control" id="nomProjet"  name="nomProjet" formControlName="nomProjet" placeholder="Entrez le nom du projet"  required>
                 <br>
               </div>                            
             <div  class="form-group">
-            
-                <input type="text" class="form-control" id="typeProjet" name="typeProjet" formControlName="typeProjet" placeholder="Entrez le type du projet" >
+                <input type="text" *ngIf="showAdd  || showUpdate"  class="form-control" id="typeProjet" name="typeProjet" formControlName="typeProjet" placeholder="Entrez le type du projet" >
                 <br>
-            </div>                            
+            </div>     
+            <div  class="form-group">
+            
+              <input type="text" *ngIf="showAddCollaborator"  class="form-control" id="email" name="email" formControlName="email" placeholder="Enter email address" >
+              <br>
+          </div>                        
         </form>
     </div>
     <div class="modal-footer">
-      <button type="button" id='cancel' class="btn btn-secondary" data-bs-dismiss="modal"(click)="cancel()">Annuler</button>
-      <button type="button" *ngIf="showAdd"class="btn btn-primary"  (click)="saveProject()">Créer</button>
-      <button type="button" *ngIf="showUpdate" class="btn btn-primary"  (click)="updateProject()">Modifier</button>
+      <button type="button" id='cancel' class="btn btn-secondary" data-bs-dismiss="modal"(click)="cancel()">Cancel</button>
+      <button type="button" *ngIf="showAdd"class="btn btn-primary"  (click)="saveProject()">Create</button>
+      <button type="button" *ngIf="showUpdate" class="btn btn-primary"  (click)="updateProject()">Update</button>
+      <button type="button" *ngIf="showAddCollaborator"   (click)="invitCollaborator()" class="btn btn-primary" >Invite collaborator</button>
   </div>
-  </div>
-  

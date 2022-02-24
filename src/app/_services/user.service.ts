@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { Projet } from '../projet';
+import { User } from '../user';
 
 const API_URL = 'http://localhost:8070/api/test/';
 const Project = 'project';
-const User= 'project';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -61,6 +62,10 @@ export class UserService {
     return this.http.post<void>('http://localhost:8070/InviterMembre/'+idUser+'/'+idProjet, null);
   }
 
+  public getMembresProj(idProjet:number){
+    
+    return this.http.get<User[]>('http://localhost:8070/User/'+idProjet);
+  }
 
   
 

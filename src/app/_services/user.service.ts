@@ -6,6 +6,7 @@ import { Projet } from '../projet';
 
 const API_URL = 'http://localhost:8070/api/test/';
 const Project = 'project';
+const User= 'project';
 @Injectable({
   providedIn: 'root'
 })
@@ -48,4 +49,21 @@ export class UserService {
   getPublicContent(): Observable<any> {
     return this.http.get(API_URL + 'all', { responseType: 'text' });
   }
+
+
+
+  public getIdbyEmail(email:String){
+    
+    return this.http.get<number>('http://localhost:8070/findIdByEmail/'+email);
+  }
+
+  public invitaion(idUser:String,idProjet:number):Observable<void>{
+    return this.http.post<void>('http://localhost:8070/InviterMembre/'+idUser+'/'+idProjet, null);
+  }
+
+
+  
+
+ 
+
 }

@@ -46,8 +46,9 @@ img {
     position:absolute;
     }
     #contenu {
-        margin-left:300px;
-        margin-top:40px;
+        padding-top: 5%;
+        margin-left:20%;
+        margin-top:0%;
      }
      #contenu p{
         color: gray;
@@ -95,6 +96,7 @@ img {
 }
 
 .tab{
+    margin-left:10px;
     display: flex;
     align-items: stretch;
     height: 500px;

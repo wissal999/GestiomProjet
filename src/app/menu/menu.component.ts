@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Projet } from '../projet';
 import { UserService } from '../_services/user.service';
 
 @Component({
@@ -7,11 +8,12 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  proj:any;
+  projet:Projet=new Projet();
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getProjetbyid(this.userService.getPro()).subscribe((data: any)=>{this.proj=data;console.log(data);})
+    this.userService.getProjetbyid(this.userService.getPro()).subscribe((data: any)=>{this.projet=data;})
   }
 
 }

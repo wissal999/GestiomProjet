@@ -1,8 +1,10 @@
 .navbar {   
     background-color: #0A363F; 
-
-
+    position: fixed;
+    width: 100%;
+    height: 50px;
 }
+
 
 .navbar-brand{
     margin-left: 2%;
@@ -20,10 +22,7 @@
     flex: 0.1 1 auto;
 
   }
-#help-icon{
-  color: #119D90;
- 
-}
+
 .nav-link > i{
     font-size: 20px;
 }

@@ -24,8 +24,8 @@ th,td{
 
 }
 #CreateProject{
-    border-color: #FC7900;
-    background-color:#FC7900;
+    border-color: #0a363f;
+    background-color:#0a363f;
     text-align: center;
     margin-top: 5%;
     margin-bottom:5%;
@@ -67,7 +67,11 @@ th,td{
 }
 
 th{
-    background-color: #FC7900;
+    background-color: #0a363f;
     color: #ffffff;
     text-align: left;
+}
+.nav-link{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #FC7900;
 }

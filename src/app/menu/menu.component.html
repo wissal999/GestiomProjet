@@ -1,8 +1,39 @@
-<nav id="menu">
-
-    <h2>{{proj.nom}}</h2><br> <br>
-
-    <p  class="active"> <a [routerLink]="['/backlog/'+proj.id]"><img src="../assets/backlog.png">Backlog</a></p><br>
-    <p> <a routerLink="/kanban" ><img src="../assets/kanban.png"> Tableau Kanban</a></p><br>
-    <p> <a routerLink="/git" ><img src="../assets/git.png">Github</a></p>
-</nav>
+<nav class="main-menu">
+    <ul>
+        <li>
+                 <i class="fa"></i>
+                <span class="nav-text">
+                    <h1>{{projet.nom}}</h1>
+                </span>
+            
+          
+        </li>
+        
+        <li class="has-subnav">
+            <a [routerLink]="['/backlog/'+projet.id]">
+               <i class="fa fa-list fa-2x"></i>
+                <span class="nav-text">
+                    Backlog
+                </span>
+            </a>
+            
+        </li>
+        
+        <li>
+           <a routerLink="/kanban">
+               <i class="fa fa-table fa-2x"></i>
+                <span class="nav-text">
+                    Kanban
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+               <i class="fa fa-github fa-2x"></i>
+                <span class="nav-text">
+                    Github
+                </span>
+            </a>
+        </li>
+    </ul>
+   </nav>

@@ -32,14 +32,12 @@
 }
 
 .example-list {
-    width: 100%;
-    max-width: 100%;
-    border: solid 1px #ccc;
-    min-height: 30px;
-    border-radius: 4px;
-    display: block;
-    background: white;
-    overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  min-height: 30px;
+  border-radius: 4px;
+  display: block;
+  overflow: hidden;
   }
   
   .example-box {

@@ -57,12 +57,12 @@
           <h5 *ngIf="showAddCollaborator" class="Titre"> List Collaborators</h5>
           <table *ngIf="showAddCollaborator">
       
-            <tbody *ngFor="let user of Utilisateurs" >
-              <tr>
-                <td>{{user.username}}</td>
-              </tr>
+            <div *ngFor="let user of Utilisateurs" >
+              
+                <h2>{{user.username}}</h2>
+              
          
-          </tbody>
+            </div>
         </table>
           <form [formGroup]="formValue">
                             

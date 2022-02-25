@@ -16,7 +16,9 @@ th,td{
     padding: 15px 20px;
     font-size: medium;
 }
-
+h2{
+    margin-left: -100%;
+}
 
 .Titre{
     margin-top: 10px;

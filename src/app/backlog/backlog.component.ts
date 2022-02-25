@@ -11,11 +11,16 @@ import { UserstoryService } from '../_services/userstory.service';
   templateUrl: './backlog.component.html',
   styleUrls: ['./backlog.component.css']
 })
+
 export class BacklogComponent implements OnInit {
+  startDate = new Date(1990, 0, 1);
   sprintBacklog:any;  
+  sprintBacklog1:any;  
+
   formValue !:FormGroup;
   userstory:Userstory=new Userstory();
   userstories:any;
+  Sprint:any;
   id:any;
   projet:any;
   projetId:Projet=new Projet();
@@ -30,6 +35,8 @@ export class BacklogComponent implements OnInit {
     this.userstoryService.getUserstories(this.id).subscribe(data=>{
       this.userstories=data;
       this.sprintBacklog=[];
+      this.sprintBacklog1=[];
+
       console.log(data);
     });
 

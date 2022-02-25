@@ -3,6 +3,9 @@
 <div id="contenu">
 <div id="backlog">
     <h3 id="title">Sprint backlog</h3>
+    
+    
+    
     <div cdkDropList id="sprint-Backlog" class="example-list" [cdkDropListData]="sprintBacklog"  [cdkDropListConnectedTo]="['backlogProject','sprint-Backlog1']"  (cdkDropListDropped)="drop($event)" >
         <div class="example-box" *ngFor="let  UserStory of sprintBacklog" cdkDrag>{{UserStory.userStory}}</div>
       </div>
@@ -10,8 +13,8 @@
 </div>
 <div id="backlog">
   <h3 id="title">Sprint2</h3>
-  <div cdkDropList id="sprint-Backlog1" class="example-list" [cdkDropListData]="id"  [cdkDropListConnectedTo]="['backlogProject','sprint-Backlog']" (cdkDropListDropped)="drop($event)" >
-      <div class="example-box" *ngFor="let  UserStory of sprintBacklog" cdkDrag>{{UserStory.userStory}}</div>
+  <div cdkDropList id="sprint-Backlog1" class="example-list" [cdkDropListData]="sprintBacklog1"  [cdkDropListConnectedTo]="['backlogProject','sprint-Backlog']" (cdkDropListDropped)="drop($event)" >
+      <div class="example-box" *ngFor="let  UserStory of sprintBacklog1" cdkDrag>{{UserStory.userStory}}</div>
     </div>
 </div>
 <div id="backlog">

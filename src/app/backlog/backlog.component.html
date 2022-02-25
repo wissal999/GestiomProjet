@@ -19,7 +19,10 @@
     </div>
 </div>
 <div id="backlog">
-    <h3 id="title">Product backlog</h3>
+    <h3 id="title">Product backlog</h3><button type="submit"id="button" >
+      <i class="bi bi-plus-lg"></i>
+      <span>Sprint</span>
+      </button>
     <div cdkDropList id="backlogProject" class="example-list" [cdkDropListData]="userstories" [cdkDropListConnectedTo]="['sprint-Backlog','sprint-Backlog1']"  (cdkDropListDropped)="drop($event)" >
         <div class="example-box" *ngFor="let UserStory of userstories" cdkDrag>{{UserStory.userStory}}
           <i class="bi bi-trash" (click)="clickMethod(UserStory.userStory,UserStory.id)"></i>
@@ -28,17 +31,16 @@
 
       
         <form [formGroup]="formValue"aria-required="true">
-          <button type="submit"id="button" (click)= "saveUserstory()">
-            <i class="bi bi-plus-lg"></i>
-            <span>Tache</span>
-            </button>
-                              
+               
           <div class="form-group" >
-            
+            <br>
               <input type="text" class="form-control" id="tache"  name="tache" formControlName="userStory" placeholder="Tache"  required>
-              <br>
             </div>                            
-        
+        <button type="submit"id="button" (click)= "saveUserstory()">
+            <i class="bi bi-plus-square" ></i><span style="font-size: 15px;"> Tache</span>
+            
+            </button>
+                         
           </form>
 </div>
 </div>

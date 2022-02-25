@@ -12,12 +12,23 @@
     margin-top: 70px; 
     margin-left: 20px;  
     padding: 5px;
-   
+  
 }
 #title{
     color: white;
     padding-left: 20px;
+    display: inline;
 
+}
+.pull-right{
+  border-radius: 5px;
+  background:#FC7900;
+  border-color:#FC7900;
+  color: white;
+
+}
+#sprint-Backlog,#backlogProject{
+  margin-top: 10px;
 }
 
 .example-list {

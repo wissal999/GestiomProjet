@@ -62,9 +62,7 @@ export class BacklogComponent implements OnInit {
     console.log(this.userstory.projet)
     console.log(this.userstory)
     this.userstoryService.addUserstory(this.userstory).subscribe(data=>{console.log(data)
-    alert("userstory added !")
-    let ref=document.getElementById('cancel');
-    ref?.click();
+ 
     this.formValue.reset()
   
     this.getUserstoriesProject();

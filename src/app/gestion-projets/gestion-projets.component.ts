@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Projet, UserId } from '../projet';
 import { ConfirmDialogService } from '../Services/confirm-dialog.service';
 import { ProjetService } from '../Services/projet.service';
+import { User } from '../user';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { UserService } from '../_services/user.service';
 
@@ -26,6 +27,8 @@ export class GestionProjetsComponent implements OnInit {
   idProject:any;
   idUser:any;
   email:any;
+  Utilisateurs!:User[];
+
 
  
 
@@ -71,6 +74,9 @@ export class GestionProjetsComponent implements OnInit {
     this.showUpdate=false;
     this.showAddCollaborator=true;
     this.idProject=id;
+    this.userService.getMembresProj(this.idProject).subscribe(data=>{
+    this.Utilisateurs=data;
+    })
     console.log(this.idProject);
   }
   invitCollaborator(){
@@ -93,7 +99,7 @@ export class GestionProjetsComponent implements OnInit {
  
    
   }
-  
+
 
   cancel(){
     this.showDiv=false;

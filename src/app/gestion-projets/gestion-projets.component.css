@@ -21,6 +21,8 @@ th,td{
 .Titre{
     margin-top: 10px;
     font-size: 20px;
+    text-align: start;
+   
 
 }
 #CreateProject{
@@ -64,6 +66,7 @@ th,td{
 
 .btn-primary.btn{
     background:#FC7900;
+    border-color:#FC7900 ;
 }
 
 th{

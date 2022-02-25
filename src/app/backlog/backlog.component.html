@@ -3,10 +3,11 @@
 <div id="contenu">
 <div id="backlog">
     <h3 id="title">Sprint backlog</h3>
-    
+
     
     
     <div cdkDropList id="sprint-Backlog" class="example-list" [cdkDropListData]="sprintBacklog"  [cdkDropListConnectedTo]="['backlogProject','sprint-Backlog1']"  (cdkDropListDropped)="drop($event)" >
+
         <div class="example-box" *ngFor="let  UserStory of sprintBacklog" cdkDrag>{{UserStory.userStory}}</div>
       </div>
 

@@ -1,0 +1,99 @@
+
+<app-menu></app-menu>
+<div id="contenu">
+<div id="backlog" *ngFor="let  SprintBacklog of SprintBacklogs" >
+    <h3 id="title">{{SprintBacklog.nom}}</h3>
+    <h3 class="date">{{SprintBacklog.dateDebut}}</h3>
+    <h3 class="date">/ {{SprintBacklog.dateFin}}</h3>
+    <div class="float-right">
+      <div  class="dropdown">
+        <button class="dropbtn"><i class="bi bi-three-dots"></i></button>
+        <div class="dropdown-content">
+          <div data-bs-toggle="modal" data-bs-target="#addSprint" (click)="onEditSprintBacklog(SprintBacklog)"><i  class="bi bi-pencil"></i> Update</div>
+          <div (click)="DeleteSprintBacklog(SprintBacklog.id)" ><i class="bi bi-trash" ></i> Delete </div>
+ 
+        </div>
+      </div>
+    </div>
+ 
+    <button  class="float-right" id="DemmarageSprint" >Démarrer le sprint</button>
+ 
+    <div cdkDropList id="{{'sprint-Backlog'+SprintBacklog.id}}"  class="example-list" [cdkDropListData]="sprintBacklog"  [cdkDropListConnectedTo]="['backlogProject']"  (cdkDropListDropped)="drop($event)" >
+        <div class="example-box" *ngFor="let  UserStory of sprintBacklog" cdkDrag>{{UserStory.nom}}</div>
+      </div>
+
+</div>
+
+<div id="backlog">
+  <button class=pull-right  data-bs-toggle="modal" data-bs-target="#addSprint"   (click)="addSprintBacklog()">Add sprint</button>
+    <h3 id="title">Product backlog</h3>
+    <div   cdkDropList id="backlogProject" class="example-list" [cdkDropListData]="userstories"[cdkDropListConnectedTo]="['sprint-Backlog7','sprint-Backlog9','sprint-Backlog10','sprint-Backlog11']" (cdkDropListDropped)="drop($event)" >
+      <div class="example-box" *ngFor="let UserStory of userstories" cdkDrag>{{UserStory.nom}}
+        <i class="bi bi-trash" (click)="clickMethod(UserStory.nom,UserStory.id)"></i>
+  </div>
+      </div>
+
+      
+        <form [formGroup]="formValue"aria-required="true">
+          <button type="submit"id="button" (click)= "saveUserstory()">
+            <i class="bi bi-plus-lg"></i>
+            <span>Tache</span>
+            </button>
+                              
+          <div class="form-group" >
+            
+              <input type="text" class="form-control" id="nom"  name="nom" formControlName="nomUserstory" placeholder="Tache"  required>
+              <br>
+            </div>                            
+        
+          </form>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addSprint" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 *ngIf="showAdd" class="Titre">Add sprint</h5>
+        <h5 *ngIf="showEdit" class="Titre">Update sprint</h5>
+        <button type="button" class="close" data-bs-dismiss="modal"  aria-label="Close">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form">
+                          
+          <div  class="form-group" >
+            <label class="label">Sprint name:</label>
+          <input type="text" class="form-control" id="nom" name="nom" formControlName="nom" placeholder="Enter the name of sprint" >                
+          
+          </div>
+          <div  class="form-group" >
+            <label class="label">Start date:</label>
+              <input type="date" class="form-control" id="dateDebut" name="dateDebut" formControlName="dateDebut" placeholder="Entrez les membres de l'equipe" >                        
+          </div>
+          <div  class="form-group" >
+            <label class="label">End date:</label>
+              <input type="date" class="form-control" id="dateFin" name="dateFin" formControlName="dateFin" placeholder="Entrez les membres de l'equipe" >
+              <br>                         
+          </div>
+
+
+        
+      
+      </form>
+      </div>
+      <div class="modal-footer">
+          <button type="button" id='cancel' class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" *ngIf="showAdd" class="btn btn-primary" (click)= "saveSprintBacklog()">Add Sprint</button>
+          <button type="button" *ngIf="showEdit" class="btn btn-primary" (click)= "updateSprintBacklog()">Update Sprint</button>
+  
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

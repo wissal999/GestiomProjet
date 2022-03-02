@@ -1,0 +1,98 @@
+<nav class="main-menu">
+    <ul>
+        <br>
+        <li>
+                 <i class="fa"></i>
+                <span class="nav-text">
+                    <h1>{{project.nom}}</h1>
+                </span>
+            
+          
+        </li>
+        <br>
+        
+        <li class="has-subnav">
+            <a [routerLink]="['/backlog/'+project.id]">
+               <i class="fa fa-list fa-2x"></i>
+                <span class="nav-text">
+                    Backlog
+                </span>
+            </a>
+            
+        </li>
+        
+        <li>
+           <a routerLink="['/kanban/'+project.id]/kanban">
+               <i class="fa fa-table fa-2x"></i>
+                <span class="nav-text">
+                    Kanban
+                </span>
+            </a>
+        </li>
+        <br>
+        <li>
+            <a href="#" (click)="addRaccourci()" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="bi bi-link"></i>
+                <span class="nav-text">
+                   Add shortcut
+                </span>
+            </a>
+        </li>
+    </ul>
+    <ul *ngFor="let raccourci of Raccourcis">
+        <li>
+            <div id="raccourci">
+            <a (click)="onNavigate(raccourci.lien)" target="_blank">
+                <i  id="icon" class="bi bi-box-arrow-up-right"></i>
+                <span class="nav-text"> 
+                     {{raccourci.nomRaccourci}} 
+                    
+    
+                </span>
+                
+
+            </a>
+            <i id ="edit" (click)=" onEdit(raccourci)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="bi bi-pencil"></i>
+  
+        </div>
+           
+        </li>
+  
+    </ul>
+    <div>
+
+    </div>
+   </nav>
+
+   <div class="modal fade"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+ 
+          <h5 class="Titre" *ngIf="showAdd" >Add a shortcut to your project</h5>
+          <h5 class="Titre" *ngIf="showEdit" >Edit shortcut</h5>
+          <button type="button" class="close" data-bs-dismiss="modal"  aria-label="Close">
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formValue">
+                            
+            <div class="form-group">        
+                <input type="text"   class="form-control" id="nomRaccourci"  name="nomRaccourci" formControlName="nomRaccourci" placeholder="Ajoutez le nom du raccourci"  required>
+                <br>
+              </div>                            
+            <div  class="form-group">
+                <input type="text"   class="form-control" id="lienRaccourci" name="lienRaccourci" formControlName="lienRaccourci" placeholder="Ajoutez le lien du raccourci" >
+                <br>
+            </div>     
+                                
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id='cancel' class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" *ngIf="showEdit" id='cancel'  class="btn btn-secondary"  (click)=" confirmDeleteRaccourci()" >Delete shortcut</button>
+      <button type="button" *ngIf="showAdd" class="btn btn-primary"  (click)="saveRaccourci()">Create</button>
+      <button type="button" *ngIf="showEdit" class="btn btn-primary"  (click)="updateProject()">Update shortcut</button>
+
+  </div>

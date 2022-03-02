@@ -1,0 +1,26 @@
+.box{
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    border-color: #119D90;
+    border-width: medium;
+    border-radius: 5px;
+    align-items: center;
+    padding: 5px;
+
+
+}
+.box > i{
+    font-size: 15px;
+
+}
+.box > input{
+    height: 15px;
+    width: 150px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+   
+    padding: 5px;
+
+}

@@ -1,0 +1,67 @@
+<app-header></app-header>
+<h1 id="title">Liste des projets</h1>
+
+<div class="content">
+
+    <table class="table table-hover">
+      <thead class="thead_container" >
+        <tr>
+          <th scope="col">Nom de l'equipe </th>
+          <th scope="col">Membres de l'equipe </th>
+      
+          <th scope="col">Modifier</th>
+          <th scope="col">Supprimer</th>
+        </tr>
+      </thead>
+      <tbody  >
+        <tr>
+        
+          <td></td>
+          <td class="td"><i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></td>
+          <td class="td"><i class="bi bi-trash" alt="delete" ></i> </td>
+        </tr>
+   
+  
+    </tbody>
+  </table>
+  <button  type="button" id="CreateProject"   class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Créer une équipe
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="Titre">Ajout équipe</h5>
+          <button type="button" class="close" data-bs-dismiss="modal"  aria-label="Close">
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+                            
+            <div  class="form-group" >
+               
+                <input type="text" class="form-control" id="nomEquipe" name="nomEquipe" formControlName="nomEquipe" placeholder="Entrez le nom de l'equipe" >                
+                <br>
+            </div>
+            <div  class="form-group" >
+                
+                <input type="text" class="form-control" id="membresEquipe" name="membresEquipe" formControlName="membresEquipe"placeholder="Entrez les membres de l'equipe" >
+                <br>                         
+            </div>
+
+          
+        
+        </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id='cancel' class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <button type="button" class="btn btn-primary" >Créer</button>
+            <button type="button" class="btn btn-primary" >Modifier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

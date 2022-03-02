@@ -10,28 +10,28 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./kanban.component.css']
 })
 export class KanbanComponent implements OnInit {
-  proj:any;
+  us:any;
+  sprints:any;
+  us1:any;
   constructor(private userService: UserService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.userService.getProjetbyid(this.userService.getPro()).subscribe(data=>{this.proj=data;console.log(data);})
-    console.log("tayyy"+this.proj);
+  
+   // this.userService.getProjetbyid(this.userService.getPro()).subscribe(data=>{this.proj=data;console.log(this.proj.nom);})
+
+   // console.log("tayyy"+this.userService.getPro());
+    this.userService.getSprint(this.userService.getPro()).subscribe(data=>{this.sprints=data;console.log(this.sprints);})
+    
   }
-  todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
+  getUsSprint(value:any){
+    if(value.target.value==null){}
+   this.userService.getUsbySprint(value.target.value).subscribe(data=>{this.us=data;console.log(this.us);})
+   console.log(value.target.value);
+   this.us1=[];
+   
 
-  done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
-
+  }
+  
   review = [
     'Take bath',
     'Wash car',

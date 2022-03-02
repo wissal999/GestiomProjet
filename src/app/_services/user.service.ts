@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { Projet } from '../projet';
 import { User } from '../user';
+import { Sprint } from '../sprint';
 
 const API_URL = 'http://localhost:8070/api/test/';
 const Project = 'project';
@@ -30,6 +31,13 @@ export class UserService {
     
     return this.http.get<Projet[]>('http://localhost:8070/projets/'+id);
   }
+  public getSprint(id:String):Observable<Sprint[]>{
+    return this.http.get<Sprint[]>("http://localhost:8070/getAllSprint/"+id);
+  }
+  public getUsbySprint(id:String):Observable<Sprint[]>{
+    return this.http.get<Sprint[]>("http://localhost:8070/userStorybySprintId/"+id);
+  }
+
 
 
   public getProjetbyid(id: String):Observable<Projet[]>{

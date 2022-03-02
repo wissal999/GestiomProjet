@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Projet } from '../projet';
 import {  Userstory } from '../userstory';
+import { UserService } from '../_services/user.service';
 import { UserstoryService } from '../_services/userstory.service';
 
 @Component({
@@ -16,19 +17,21 @@ export class BacklogComponent implements OnInit {
   startDate = new Date(1990, 0, 1);
   sprintBacklog:any;  
   sprintBacklog1:any;  
-
+  sprints:any;
   formValue !:FormGroup;
   userstory:Userstory=new Userstory();
   userstories:any;
   Sprint:any;
   id:any;
   projet:any;
+  us:any;
+  tabels=['backlogProject'];
   projetId:Projet=new Projet();
-  constructor(private route:ActivatedRoute,private formBuilder:FormBuilder,private userstoryService:UserstoryService) { }
+  constructor(private route:ActivatedRoute,private formBuilder:FormBuilder,private userstoryService:UserstoryService,private userService: UserService) { }
 
   ngOnInit(): void {
     this.id=Number(this.route.snapshot.params['id']);
-    console.log(this.getUserstoriesProject());
+    //console.log(this.getUserstoriesProject());
     this.formValue=this.formBuilder.group({
       userStory:['']
     })
@@ -37,8 +40,18 @@ export class BacklogComponent implements OnInit {
       this.sprintBacklog=[];
       this.sprintBacklog1=[];
 
-      console.log(data);
+      //console.log(data);
     });
+    this.userService.getSprint(this.userService.getPro()).subscribe(data=>{this.sprints=data;console.log(this.sprints);for (let week of this.sprints) {
+      console.log("hedha"+week.nom)
+      this.tabels.push(week.nom);
+      this.userService.getUsbySprint(week.id).subscribe(data=>{this.us=data;console.log(this.us);})
+      
+     ;
+      
+      
+    };})
+   // console.log(this.tabels);
 
   }
 
@@ -64,7 +77,7 @@ export class BacklogComponent implements OnInit {
   saveUserstory(){
   
    this.projetId.id=this.id;
-    this.userstory.userStory=this.formValue.value.userStory;
+    this.userstory.nom=this.formValue.value.userStory;
     this.userstory.projet=this.projetId;
     console.log(this.userstory.projet)
     console.log(this.userstory)
@@ -75,9 +88,8 @@ export class BacklogComponent implements OnInit {
     this.getUserstoriesProject();
     });
 
-
-
     }
+  
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

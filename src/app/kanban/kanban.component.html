@@ -5,9 +5,10 @@
             <br><br><br>
             <h3>Tablau kanban</h3><br>
             <form>
-              <label for="list-select">Regrouper par :</label>
-              <select name="list" id="list-select">
-              <option value="">Aucune</option>
+              <label for="list-select">Sprints</label>
+              <select  name="list" id="list-select" (change)="getUsSprint($event)" >
+                <option value="0" >select sprint</option>
+              <option *ngFor="let sprint of sprints"value={{sprint.id}} >{{sprint.nom}}</option>
               </select>
             </form>
           </div>
@@ -17,9 +18,9 @@
           <div class="drag-container">
               <div class="section-heading">To Do</div>
           
-              <div cdkDropList #pendingList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList,reviewList]"
+              <div cdkDropList #pendingList="cdkDropList" [cdkDropListData]="us" [cdkDropListConnectedTo]="[doneList,reviewList]"
                 class="item-list" (cdkDropListDropped)="drop($event)">
-                <div class="item-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+                <div class="item-box" *ngFor="let u of us" cdkDrag>{{u.nom}}</div>
               </div>
           </div>
       </div>
@@ -27,9 +28,9 @@
           <div class="drag-container">
               <div class="section-heading">Doing</div>
           
-              <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[pendingList,reviewList]"
+              <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="us1" [cdkDropListConnectedTo]="[pendingList,reviewList]"
                 class="item-list" (cdkDropListDropped)="drop($event)">
-                <div class="item-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+                <div class="item-box" *ngFor="let u of us1" cdkDrag>{{u.nom}}</div>
               </div>
             </div>
       </div>

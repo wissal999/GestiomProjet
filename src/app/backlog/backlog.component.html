@@ -1,21 +1,11 @@
 
 <app-menu></app-menu>
 <div id="contenu">
-<div id="backlog">
-    <h3 id="title">Sprint backlog</h3>
 
-    
-    
-    <div cdkDropList id="sprint-Backlog" class="example-list" [cdkDropListData]="sprintBacklog"  [cdkDropListConnectedTo]="['backlogProject','sprint-Backlog1']"  (cdkDropListDropped)="drop($event)" >
-
-        <div class="example-box" *ngFor="let  UserStory of sprintBacklog" cdkDrag>{{UserStory.userStory}}</div>
-      </div>
-
-</div>
-<div id="backlog">
-  <h3 id="title">Sprint2</h3>
-  <div cdkDropList id="sprint-Backlog1" class="example-list" [cdkDropListData]="sprintBacklog1"  [cdkDropListConnectedTo]="['backlogProject','sprint-Backlog']" (cdkDropListDropped)="drop($event)" >
-      <div class="example-box" *ngFor="let  UserStory of sprintBacklog1" cdkDrag>{{UserStory.userStory}}</div>
+<div *ngFor="let sprint of sprints"id="backlog">
+  <h3  id="title">{{sprint.nom}}</h3>
+  <div cdkDropList id={{sprint.nom}}  class="example-list" [cdkDropListData]="us"  [cdkDropListConnectedTo]="tabels" (cdkDropListDropped)="drop($event)" >
+      <div class="example-box" *ngFor="let  UserStory of us" cdkDrag>{{UserStory.nom}}</div>
     </div>
 </div>
 <div id="backlog">
@@ -23,8 +13,8 @@
       <i class="bi bi-plus-lg"></i>
       <span>Sprint</span>
       </button>
-    <div cdkDropList id="backlogProject" class="example-list" [cdkDropListData]="userstories" [cdkDropListConnectedTo]="['sprint-Backlog','sprint-Backlog1']"  (cdkDropListDropped)="drop($event)" >
-        <div class="example-box" *ngFor="let UserStory of userstories" cdkDrag>{{UserStory.userStory}}
+    <div cdkDropList id="backlogProject" class="example-list" [cdkDropListData]="userstories" [cdkDropListConnectedTo]="tabels"  (cdkDropListDropped)="drop($event)" >
+        <div class="example-box" *ngFor="let UserStory of userstories" cdkDrag>{{UserStory.nom}}
           <i class="bi bi-trash" (click)="clickMethod(UserStory.userStory,UserStory.id)"></i>
     </div>
       </div>

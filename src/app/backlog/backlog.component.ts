@@ -6,11 +6,10 @@ import { ActivatedRoute } from '@angular/router';
 import { numbers } from '@material/dialog';
 import { Projet } from '../projet';
 import {  Userstory } from '../userstory';
-<<<<<<< Updated upstream
-=======
+
 import { SprintBacklogService } from '../_services/sprint-backlog.service';
 import { UserService } from '../_services/user.service';
->>>>>>> Stashed changes
+
 import { UserstoryService } from '../_services/userstory.service';
 
 @Component({
@@ -23,11 +22,10 @@ export class BacklogComponent implements OnInit {
   formValue !:FormGroup;
   userstory:Userstory=new Userstory();
   userstories:any;
-<<<<<<< Updated upstream
-=======
+
   SprintBacklogs:any;
   sprints:any;
->>>>>>> Stashed changes
+
   id:any;
   us:any;
   projet:any;
@@ -35,11 +33,11 @@ export class BacklogComponent implements OnInit {
   sprinttabel:any;
   dat:any;
   projetId:Projet=new Projet();
-<<<<<<< Updated upstream
-  constructor(private route:ActivatedRoute,private formBuilder:FormBuilder,private userstoryService:UserstoryService) { }
-=======
+
+
+
   constructor(private route:ActivatedRoute,private formBuilder:FormBuilder,private userstoryService:UserstoryService,private sprintBacklogService:SprintBacklogService,private userService: UserService ) { }
->>>>>>> Stashed changes
+
 
   ngOnInit(): void {
     this.id=Number(this.userService.getPro());
@@ -53,8 +51,7 @@ export class BacklogComponent implements OnInit {
   
     });
 
-<<<<<<< Updated upstream
-=======
+
     this.sprintBacklogService.getSprintBacklogs(this.userService.getPro()).subscribe(data=>{
       this.SprintBacklogs=data;
     // this.getUserstoriesBySprintBacklog();
@@ -66,7 +63,7 @@ export class BacklogComponent implements OnInit {
       this.userstoryService.getUserstoriesBySprintBacklog(sprint.id).subscribe(data=>{sprint.us=data;});
     };})
     
->>>>>>> Stashed changes
+
   }
 
 
@@ -81,8 +78,7 @@ export class BacklogComponent implements OnInit {
       console.log(data);
     });
   }
-<<<<<<< Updated upstream
-=======
+
   getUserstoriesBySprintBacklog(){
     this.userstoryService.getUserstoriesBySprintBacklog(this.sprintBacklog.id).subscribe(data=>{
      
@@ -96,7 +92,7 @@ export class BacklogComponent implements OnInit {
 
     });
   }
->>>>>>> Stashed changes
+
   clickMethod(name: string, id: number) {
     if(confirm("Are you sure to delete "+name)) {
       this.deleteUserstory(id);

@@ -27,8 +27,7 @@ public deleteUserstory(id:number):Observable<void>{
 public updateProjet(id:number,userstory:Userstory):Observable<Userstory>{
   return this.http.put<Userstory>('http://localhost:8070/userStory/'+id,userstory)
 }
-<<<<<<< Updated upstream
-=======
+
 
 public getUserstoriesBySprintBacklog(idSprintBacklog:number):Observable<Userstory[]>{
   return this.http.get<Userstory[]>('http://localhost:8070/getAllUserStoryBySprintId/'+idSprintBacklog);
@@ -51,5 +50,5 @@ public getDoneUs(idSprintBacklog:number):Observable<Userstory[]>{
 public updateEtatUserstory(idUs:String,Etat:etat){
   return this.http.put('http://localhost:8070/updateEtatUserStory/'+idUs+'/'+Etat,null);
 }
->>>>>>> Stashed changes
+
 }

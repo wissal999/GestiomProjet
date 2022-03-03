@@ -1,11 +1,19 @@
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
+<<<<<<< Updated upstream
+=======
+import { ActivatedRoute } from '@angular/router';
+import { SprintBacklogService } from '../_services/sprint-backlog.service';
+>>>>>>> Stashed changes
 import { UserService } from '../_services/user.service';
+import { UserstoryService } from '../_services/userstory.service';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: 'app-kanban',
+  templateUrl: './kanban.component.html',
+  styleUrls: ['./kanban.component.css']
 })
+<<<<<<< Updated upstream
 export class MenuComponent implements OnInit {
   proj:any;
   constructor(private userService: UserService) { }
@@ -30,35 +38,41 @@ export class MenuComponent implements OnInit {
       this.deleteRaccourci();
       window.location.reload();
     }
-  }
-
-
-  deleteRaccourci(){
- this.raccourciService.deleteRaccourci( this.raccourci.id).subscribe(data=>{ 
-    console.log(data)
-
-    this.getRaccourciByProject();
-  }
-  )
-  }
-  addRaccourci(){
-    this.showAdd=true;
-    this.formValue.reset();
-    this.showDiv=true;
-    this.showEdit=false;
-  }
-
+=======
+export class KanbanComponent implements OnInit {
+  us:any;
+  TodoUs:any;
+  DoingUs:any;
+  DoneUs:any;
+  sprints:any;
+  us1:any;
   
-  saveRaccourci(){
-    this.projectId.id=this.id;
-    this.raccourci.nomRaccourci=this.formValue.value.nomRaccourci;
-    this.raccourci.lien=this.formValue.value.lienRaccourci;
-    this.raccourci.project=this.projectId;
-    console.log(this.project.id);
+  constructor(private userService: UserService,private route:ActivatedRoute,private sprintBacklogService:SprintBacklogService ,private userstoryService:UserstoryService) { }
 
-    this.raccourciService.addRaccourci(this.raccourci).subscribe(data=>{console.log(data)
-
+  ngOnInit(): void {
   
+   // this.userService.getProjetbyid(this.userService.getPro()).subscribe(data=>{this.proj=data;console.log(this.proj.nom);})
+
+   // console.log("tayyy"+this.userService.getPro());
+   this.sprintBacklogService.getdemarresprint(this.userService.getPro()).subscribe(data=>{this.sprints=data;console.log(this.sprints);})
+    
+>>>>>>> Stashed changes
+  }
+  getUsSprint(value:any){
+   // if(value.target.value==null){}
+    this.userstoryService.getUserstoriesBySprintBacklog(value.target.value).subscribe(data=>{this.us=data;console.log(this.us);})
+   console.log(value.target.value);
+   this.us1=[];
+   this.userstoryService.getToDoUs(value.target.value).subscribe(data=>{this.TodoUs=data;console.log(this.us);})
+   this.userstoryService.getDoingUs(value.target.value).subscribe(data=>{this.DoingUs=data;console.log(this.us);})
+   this.userstoryService.getDoneUs(value.target.value).subscribe(data=>{this.DoneUs=data;console.log(this.us);})
+
+
+
+  }
+  
+  
+<<<<<<< Updated upstream
     window.location.reload();
   });
   }
@@ -107,6 +121,26 @@ onNavigate( lien :string){
   cancel(){
     this.showDiv=false;
 >>>>>>> Stashed changes
-  }
+=======
+ 
 
+  drop(event: CdkDragDrop<string[]>,av:String) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+                        this.us=event.container.data[0];
+                        console.log("us id "+this.us.id);
+                        console.log("us etat "+av);
+
+                        if(av=="DoneUs"){this.userstoryService.doneUs(this.us.id).subscribe(data=>{console.log("yamoudir"+data)});}else
+                        if(av=="DoingUs"){this.userstoryService.doingUs(this.us.id).subscribe(data=>{console.log(data)});}else
+                        if(av=="TodoUs"){this.userstoryService.todoUs(this.us.id).subscribe(data=>{console.log(data)});}else{}
+                                
+    }
+>>>>>>> Stashed changes
+  }
 }

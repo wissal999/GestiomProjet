@@ -103,6 +103,7 @@ export class BacklogComponent implements OnInit {
   saveUserstory(){
   
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
    this.projetId.id=this.id;
     this.userstory.userStory=this.formValue.value.userStory;
     this.userstory.projet=this.projetId;
@@ -110,6 +111,13 @@ export class BacklogComponent implements OnInit {
     console.log(this.userstory)
     this.userstoryService.addUserstory(this.userstory).subscribe(data=>{console.log(data)
  
+=======
+   this.projetId.id=this.userService.getPro();
+    this.userstory.nom=this.formValue.value.nomUserstory;
+    this.userstory.projet=this.projetId;
+    this.userstory.avancement="À_FAIRE";
+    this.userstoryService.addUserstory(this.userstory).subscribe(data=>{
+>>>>>>> Stashed changes
 =======
    this.projetId.id=this.userService.getPro();
     this.userstory.nom=this.formValue.value.nomUserstory;
@@ -136,11 +144,14 @@ export class BacklogComponent implements OnInit {
         event.container.data,
         event.previousIndex,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         event.currentIndex,
       );
     }
   }
 =======
+=======
+>>>>>>> Stashed changes
         event.currentIndex,   
       );console.log(id1);
       this.dat=event.container.data[0];
@@ -229,7 +240,14 @@ export class BacklogComponent implements OnInit {
   
         window.location.reload();
      
+<<<<<<< Updated upstream
       });
     }
 >>>>>>> Stashed changes
 }
+=======
+
+      });
+    }
+}
+>>>>>>> Stashed changes

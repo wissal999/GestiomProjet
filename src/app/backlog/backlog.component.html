@@ -1,6 +1,6 @@
-
 <app-menu></app-menu>
 <div id="contenu">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <div id="backlog">
     <h3 id="title">Sprint backlog</h3>
@@ -8,6 +8,8 @@
     <div cdkDropList id="sprint-Backlog" class="example-list" [cdkDropListData]="sprintBacklog"  [cdkDropListConnectedTo]="['backlogProject']" (cdkDropListDropped)="drop($event)" >
         <div class="example-box" *ngFor="let  UserStory of sprintBacklog" cdkDrag>{{UserStory.userStory}}</div>
 =======
+=======
+>>>>>>> Stashed changes
 <div id="backlog" *ngFor="let  SprintBacklog of sprints" >
     <h3 id="title">{{SprintBacklog.nom}}</h3>
     <h3 class="date">{{SprintBacklog.dateDebut}}</h3>
@@ -28,6 +30,9 @@
  
     <div cdkDropList id="{{SprintBacklog.nom}}"  class="example-list" [cdkDropListData]="SprintBacklog.us"  [cdkDropListConnectedTo]="tabels"  (cdkDropListDropped)="drop($event,SprintBacklog.id)" >
         <div class="example-box" *ngFor="let  UserStory of SprintBacklog.us" cdkDrag>{{UserStory.nom}}</div>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       </div>
 
@@ -35,11 +40,14 @@
 <div id="backlog">
     <h3 id="title">Product backlog</h3>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <div cdkDropList id="backlogProject" class="example-list" [cdkDropListData]="userstories" [cdkDropListConnectedTo]="['sprint-Backlog']" (cdkDropListDropped)="drop($event)" >
         <div class="example-box" *ngFor="let UserStory of userstories" cdkDrag>{{UserStory.userStory}}
           <i class="bi bi-trash" (click)="clickMethod(UserStory.userStory,UserStory.id)"></i>
     </div>
 =======
+=======
+>>>>>>> Stashed changes
     <div   cdkDropList id="backlogProject" class="example-list" [cdkDropListData]="userstories"[cdkDropListConnectedTo]="tabels" (cdkDropListDropped)="drop($event,'backlog')" >
       <div class="example-box" *ngFor="let UserStory of userstories" cdkDrag>{{UserStory.nom}}
         <i class="bi bi-trash" (click)="clickMethod(UserStory.nom,UserStory.id)"></i>
@@ -62,4 +70,8 @@
         
           </form>
 </div>
+<<<<<<< Updated upstream
 </div>
+=======
+</div>
+>>>>>>> Stashed changes

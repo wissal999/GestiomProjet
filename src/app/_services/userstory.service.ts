@@ -47,8 +47,13 @@ public getDoingUs(idSprintBacklog:number):Observable<Userstory[]>{
 public getDoneUs(idSprintBacklog:number):Observable<Userstory[]>{
   return this.http.get<Userstory[]>('http://localhost:8070/getDoneuserstory/'+idSprintBacklog);
 }
+<<<<<<< Updated upstream
 public updateEtatUserstory(idUs:String,Etat:etat){
   return this.http.put('http://localhost:8070/updateEtatUserStory/'+idUs+'/'+Etat,null);
+=======
+public updateEtatUserstory(idUs:String){
+  return this.http.put('http://localhost:8070/updateEtatUserStory/'+idUs+'/',null);
+>>>>>>> Stashed changes
 }
 public todoUs(idUs:String){
   return this.http.put('http://localhost:8070/todoUserstory/'+idUs,null);

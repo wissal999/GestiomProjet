@@ -50,5 +50,14 @@ public getDoneUs(idSprintBacklog:number):Observable<Userstory[]>{
 public updateEtatUserstory(idUs:String,Etat:etat){
   return this.http.put('http://localhost:8070/updateEtatUserStory/'+idUs+'/'+Etat,null);
 }
+public todoUs(idUs:String){
+  return this.http.put('http://localhost:8070/todoUserstory/'+idUs,null);
+}
+public doingUs(idUs:String){
+  return this.http.put('http://localhost:8070/doingUserstory/'+idUs,null);
+}
+public doneUs(idUs:String){
+  return this.http.put('http://localhost:8070/doneUserstory/'+idUs,null);
+}
 
 }

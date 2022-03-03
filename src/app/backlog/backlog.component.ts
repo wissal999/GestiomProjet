@@ -55,7 +55,7 @@ export class BacklogComponent implements OnInit {
     this.sprintBacklogService.getSprintBacklogs(this.userService.getPro()).subscribe(data=>{
       this.SprintBacklogs=data;
     // this.getUserstoriesBySprintBacklog();
-     // console.log(data);
+    console.log(data);
     });
     this.sprintBacklogService.getSprintBacklogs(this.userService.getPro()).subscribe((data: any)=>{this.sprints=data;for (let sprint of this.sprints) {
      // console.log("hedha"+week.nom)

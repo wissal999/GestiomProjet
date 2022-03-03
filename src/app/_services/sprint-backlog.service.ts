@@ -16,6 +16,9 @@ export class SprintBacklogService {
   public getSprintBacklogs(id:number):Observable<SprintBacklog[]>{
     return this.http.get<SprintBacklog[]>('http://localhost:8070/getAllSprint/'+id);
   }
+  public getdemarresprint(id:number):Observable<SprintBacklog[]>{
+    return this.http.get<SprintBacklog[]>('http://localhost:8070/getDemarreSprint/'+id);
+  }
 
     
   public updateSprintBacklog(id:number,sprintBacklog:SprintBacklog):Observable<SprintBacklog>{

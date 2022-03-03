@@ -1,4 +1,7 @@
+<<<<<<< Updated upstream
 <app-footer></app-footer>
+=======
+>>>>>>> Stashed changes
 <h1 id="title">List projects</h1>
 
 <div class="content">
@@ -57,12 +60,21 @@
           <h5 *ngIf="showAddCollaborator" class="Titre"> List Collaborators</h5>
           <table *ngIf="showAddCollaborator">
       
+<<<<<<< Updated upstream
             <tbody *ngFor="let user of Utilisateurs" >
               <tr>
                 <td>{{user.username}}</td>
               </tr>
          
           </tbody>
+=======
+            <div *ngFor="let user of Utilisateurs" >
+              
+                <h2>{{user.username}}</h2>
+              
+         
+            </div>
+>>>>>>> Stashed changes
         </table>
           <form [formGroup]="formValue">
                             

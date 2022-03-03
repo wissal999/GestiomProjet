@@ -27,7 +27,7 @@ export class KanbanComponent implements OnInit {
    // this.userService.getProjetbyid(this.userService.getPro()).subscribe(data=>{this.proj=data;console.log(this.proj.nom);})
 
    // console.log("tayyy"+this.userService.getPro());
-   this.sprintBacklogService.getSprintBacklogs(this.userService.getPro()).subscribe(data=>{this.sprints=data;console.log(this.sprints);})
+   this.sprintBacklogService.getdemarresprint(this.userService.getPro()).subscribe(data=>{this.sprints=data;console.log(this.sprints);})
     
   }
   getUsSprint(value:any){
@@ -46,7 +46,7 @@ export class KanbanComponent implements OnInit {
   
  
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<string[]>,av:String) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -56,7 +56,16 @@ export class KanbanComponent implements OnInit {
                         event.currentIndex);
                         this.us=event.container.data[0];
                         console.log("us id "+this.us.id);
+<<<<<<< Updated upstream
                         this.userstoryService.updateEtatUserstory(this.us.id,etat.A_FAIRE).subscribe(data=>{console.log(data)});        
+=======
+                        console.log("us etat "+av);
+
+                        if(av=="DoneUs"){this.userstoryService.doneUs(this.us.id).subscribe(data=>{console.log("yamoudir"+data)});}else
+                        if(av=="DoingUs"){this.userstoryService.doingUs(this.us.id).subscribe(data=>{console.log(data)});}else
+                        if(av=="TodoUs"){this.userstoryService.todoUs(this.us.id).subscribe(data=>{console.log(data)});}else{}
+                                
+>>>>>>> Stashed changes
     }
   }
 }

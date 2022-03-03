@@ -23,7 +23,8 @@
       </div>
     </div>
  
-    <button  class="float-right" id="DemmarageSprint" (click)="demarreSprintBacklog(SprintBacklog)">Démarrer le sprint</button>
+    <button *ngIf="SprintBacklog.etat==='NON_DEMARRÉ'" class="float-right" id="DemmarageSprint" (click)="demarreSprintBacklog(SprintBacklog)">Démarrer le sprint</button>
+    <button *ngIf="SprintBacklog.etat==='DEMARRÉ'" class="float-right" id="TerminerSprint"(click)="DeleteSprintBacklog(SprintBacklog.id)">Terminer le sprint</button>
  
     <div cdkDropList id="{{SprintBacklog.nom}}"  class="example-list" [cdkDropListData]="SprintBacklog.us"  [cdkDropListConnectedTo]="tabels"  (cdkDropListDropped)="drop($event,SprintBacklog.id)" >
         <div class="example-box" *ngFor="let  UserStory of SprintBacklog.us" cdkDrag>{{UserStory.nom}}</div>

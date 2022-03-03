@@ -21,7 +21,7 @@
               <div class="section-heading">To Do</div>
           
               <div cdkDropList #pendingList="cdkDropList" [cdkDropListData]="TodoUs" [cdkDropListConnectedTo]="[doneList,reviewList]"
-                class="item-list" (cdkDropListDropped)="drop($event)">
+                class="item-list" (cdkDropListDropped)="drop($event,'TodoUs')">
                 <div class="item-box" *ngFor="let u of TodoUs" cdkDrag>{{u.nom}}</div>
               </div>
           </div>
@@ -31,7 +31,7 @@
               <div class="section-heading">Doing</div>
           
               <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="DoingUs" [cdkDropListConnectedTo]="[pendingList,reviewList]"
-                class="item-list" (cdkDropListDropped)="drop($event)">
+                class="item-list" (cdkDropListDropped)="drop($event,'DoingUs')">
                 <div class="item-box" *ngFor="let u of DoingUs" cdkDrag>{{u.nom}}</div>
               </div>
             </div>
@@ -41,7 +41,7 @@
               <div class="section-heading">Done</div>
           
               <div cdkDropList #reviewList="cdkDropList" [cdkDropListData]="DoneUs" [cdkDropListConnectedTo]="[doneList,pendingList]"
-                class="item-list" (cdkDropListDropped)="drop($event)">
+                class="item-list" (cdkDropListDropped)="drop($event,'DoneUs')">
                 <div class="item-box" *ngFor="let u of DoneUs" cdkDrag>{{u.nom}}</div>
               </div>
             </div>

@@ -1,1 +1,51 @@
 <app-menu></app-menu>
+<<<<<<< Updated upstream
+=======
+        
+        <div class="container">
+          <div id="contenu">
+            <br><br><br>
+            <h3>Tablau kanban</h3><br>
+            <form>
+              <label for="list-select">Sprints</label>
+              <select  name="list" id="list-select" (change)="getUsSprint($event)" >
+                <option value="0" >select sprint</option>
+              <option *ngFor="let sprint of sprints"value={{sprint.id}} >{{sprint.nom}}</option>
+              </select>
+            </form>
+          </div>
+          <br><br>
+    <div class="row">
+      <div class="col-md-4">
+          <div class="drag-container">
+              <div class="section-heading">To Do</div>
+          
+              <div cdkDropList #pendingList="cdkDropList" [cdkDropListData]="TodoUs" [cdkDropListConnectedTo]="[doneList,reviewList]"
+                class="item-list" (cdkDropListDropped)="drop($event)">
+                <div class="item-box" *ngFor="let u of TodoUs" cdkDrag>{{u.nom}}</div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="drag-container">
+              <div class="section-heading">Doing</div>
+          
+              <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="DoingUs" [cdkDropListConnectedTo]="[pendingList,reviewList]"
+                class="item-list" (cdkDropListDropped)="drop($event)">
+                <div class="item-box" *ngFor="let u of DoingUs" cdkDrag>{{u.nom}}</div>
+              </div>
+            </div>
+      </div>
+      <div class="col-md-4">
+          <div class="drag-container">
+              <div class="section-heading">Done</div>
+          
+              <div cdkDropList #reviewList="cdkDropList" [cdkDropListData]="DoneUs" [cdkDropListConnectedTo]="[doneList,pendingList]"
+                class="item-list" (cdkDropListDropped)="drop($event)">
+                <div class="item-box" *ngFor="let u of DoneUs" cdkDrag>{{u.nom}}</div>
+              </div>
+            </div>
+      </div>
+    </div>
+</div>
+>>>>>>> Stashed changes

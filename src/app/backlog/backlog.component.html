@@ -1,20 +1,49 @@
 
 <app-menu></app-menu>
 <div id="contenu">
+<<<<<<< Updated upstream
 <div id="backlog">
     <h3 id="title">Sprint backlog</h3>
     <button class=pull-right>Démarrer le sprint</button>
     <div cdkDropList id="sprint-Backlog" class="example-list" [cdkDropListData]="sprintBacklog"  [cdkDropListConnectedTo]="['backlogProject']" (cdkDropListDropped)="drop($event)" >
         <div class="example-box" *ngFor="let  UserStory of sprintBacklog" cdkDrag>{{UserStory.userStory}}</div>
+=======
+<div id="backlog" *ngFor="let  SprintBacklog of sprints" >
+    <h3 id="title">{{SprintBacklog.nom}}</h3>
+    <h3 class="date">{{SprintBacklog.dateDebut}}</h3>
+    <h3 class="date">/ {{SprintBacklog.dateFin}}</h3>
+    <div class="float-right">
+      <div  class="dropdown">
+        <button class="dropbtn"><i class="bi bi-three-dots"></i></button>
+        <div class="dropdown-content">
+          <div data-bs-toggle="modal" data-bs-target="#addSprint" (click)="onEditSprintBacklog(SprintBacklog)"><i  class="bi bi-pencil"></i> Update</div>
+          <div (click)="DeleteSprintBacklog(SprintBacklog.id)" ><i class="bi bi-trash" ></i> Delete </div>
+ 
+        </div>
+      </div>
+    </div>
+ 
+    <button  class="float-right" id="DemmarageSprint" (click)="demarreSprintBacklog(SprintBacklog)">Démarrer le sprint</button>
+ 
+    <div cdkDropList id="{{SprintBacklog.nom}}"  class="example-list" [cdkDropListData]="SprintBacklog.us"  [cdkDropListConnectedTo]="tabels"  (cdkDropListDropped)="drop($event,SprintBacklog.id)" >
+        <div class="example-box" *ngFor="let  UserStory of SprintBacklog.us" cdkDrag>{{UserStory.nom}}</div>
+>>>>>>> Stashed changes
       </div>
 
 </div>
 <div id="backlog">
     <h3 id="title">Product backlog</h3>
+<<<<<<< Updated upstream
     <div cdkDropList id="backlogProject" class="example-list" [cdkDropListData]="userstories" [cdkDropListConnectedTo]="['sprint-Backlog']" (cdkDropListDropped)="drop($event)" >
         <div class="example-box" *ngFor="let UserStory of userstories" cdkDrag>{{UserStory.userStory}}
           <i class="bi bi-trash" (click)="clickMethod(UserStory.userStory,UserStory.id)"></i>
     </div>
+=======
+    <div   cdkDropList id="backlogProject" class="example-list" [cdkDropListData]="userstories"[cdkDropListConnectedTo]="tabels" (cdkDropListDropped)="drop($event,'backlog')" >
+      <div class="example-box" *ngFor="let UserStory of userstories" cdkDrag>{{UserStory.nom}}
+        <i class="bi bi-trash" (click)="clickMethod(UserStory.nom,UserStory.id)"></i>
+  </div>
+>>>>>>> Stashed changes
       </div>
 
       

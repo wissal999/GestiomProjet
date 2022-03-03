@@ -1,4 +1,59 @@
+<<<<<<< Updated upstream
 <nav id="menu">
+=======
+<nav class="main-menu">
+    <ul>
+        <br>
+        <li>
+                 <i class="fa"></i>
+                <span class="nav-text">
+                    <h1>{{project.nom}}</h1>
+                </span>
+            
+          
+        </li>
+        <br>
+        
+        <li class="has-subnav">
+            <a [routerLink]="['/backlog/'+project.id]">
+               <i class="fa fa-list fa-2x"></i>
+                <span class="nav-text">
+                    Backlog
+                </span>
+            </a>
+            
+        </li>
+        
+        <li>
+           <a routerLink="/kanban">
+               <i class="fa fa-table fa-2x"></i>
+                <span class="nav-text">
+                    Kanban
+                </span>
+            </a>
+        </li>
+        <br>
+        <li>
+            <a href="#" (click)="addRaccourci()" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="bi bi-link"></i>
+                <span class="nav-text">
+                   Add shortcut
+                </span>
+            </a>
+        </li>
+    </ul>
+    <ul *ngFor="let raccourci of Raccourcis">
+        <li>
+            <div id="raccourci">
+            <a (click)="onNavigate(raccourci.lien)" target="_blank">
+                <i  id="icon" class="bi bi-box-arrow-up-right"></i>
+                <span class="nav-text"> 
+                     {{raccourci.nomRaccourci}} 
+                    
+    
+                </span>
+                
+>>>>>>> Stashed changes
 
     <h2>{{proj.nom}}</h2><br> <br>
 
